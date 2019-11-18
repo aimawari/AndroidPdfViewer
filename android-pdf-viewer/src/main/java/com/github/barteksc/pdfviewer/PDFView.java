@@ -303,11 +303,11 @@ public class PDFView extends RelativeLayout {
 //         }
         
         if (swipeVertical) {
-            if (withAnimation) {
-                animationManager.startYAnimation(currentYOffset, offset);
-            } else {
-                moveTo(currentXOffset, offset);
-            }
+//             if (withAnimation) {
+//                 animationManager.startYAnimation(currentYOffset, offset);
+//             } else {
+//                 moveTo(currentXOffset, offset);
+//             }
         } else {
             if (withAnimation) {
                 animationManager.startXAnimation(currentXOffset, offset);
