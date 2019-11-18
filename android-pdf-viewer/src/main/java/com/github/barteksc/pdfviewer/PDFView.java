@@ -299,7 +299,7 @@ public class PDFView extends RelativeLayout {
         if (withAnimation) {
             animationManager.startXAnimation(currentXOffset, offset);
         } else {
-            moveTo(offset, currentYOffset());
+            moveTo(offset, currentYOffset);
         }
 
         showPage(page);
