@@ -290,21 +290,18 @@ public class PDFView extends RelativeLayout {
             return;
         }
 
+        // assumes swiping horizontal and snapping centre
+
         page = pdfFile.determineValidPageNumberFrom(page);
-        float offset = page == 0 ? 0 : -pdfFile.getPageOffset(page, zoom);
-        if (swipeVertical) {
-            if (withAnimation) {
-                animationManager.startYAnimation(currentYOffset, offset);
-            } else {
-                moveTo(currentXOffset, offset);
-            }
+        float offset = page == 0 ? 0 : -pdfFile.getPageOffset(page, getZoom());
+        offset += pdfFile.getPageSpacing(page, getZoom()) / 2f;
+
+        if (withAnimation) {
+            animationManagerRef.startXAnimation(getCurrentXOffset(), offset);
         } else {
-            if (withAnimation) {
-                animationManager.startXAnimation(currentXOffset, offset);
-            } else {
-                moveTo(offset, currentYOffset);
-            }
+            moveTo(offset, getCurrentYOffset());
         }
+
         showPage(page);
     }
 
