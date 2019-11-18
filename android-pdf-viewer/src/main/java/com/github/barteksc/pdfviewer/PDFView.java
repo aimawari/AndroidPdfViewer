@@ -296,13 +296,13 @@ public class PDFView extends RelativeLayout {
         float offset = page == 0 ? 0 : -pdfFile.getPageOffset(page, zoom);
         
         if (swipeVertical) {
-            System.out.println("xoffset"+currentXOffset)
-                System.out.println("offset"+offset)
+            System.out.println("xoffset"+currentXOffset);
+                System.out.println("offset"+offset);
           moveTo(currentXOffset, offset); 
         } else {
           moveTo(offset, currentYOffset);  
-            System.out.println("yoffset"+currentyOffset)
-                System.out.println("offset"+offset)
+            System.out.println("yoffset"+currentyOffset);
+                System.out.println("offset"+offset);
         }
         showPage(page);
     }
