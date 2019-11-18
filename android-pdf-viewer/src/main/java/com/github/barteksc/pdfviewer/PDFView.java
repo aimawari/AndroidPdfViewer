@@ -301,13 +301,14 @@ public class PDFView extends RelativeLayout {
 //         } else {
 //             moveTo(offset, currentYOffset);
 //         }
+        offset = snapOffsetForPage(page-1,findSnapEdge(page))
         
         if (swipeVertical) {
-//             if (withAnimation) {
-//                 animationManager.startYAnimation(currentYOffset, offset);
-//             } else {
-//                 moveTo(currentXOffset, offset);
-//             }
+            if (withAnimation) {
+                animationManager.startYAnimation(currentYOffset, offset);
+            } else {
+                moveTo(currentXOffset, offset);
+            }
         } else {
             if (withAnimation) {
                 animationManager.startXAnimation(currentXOffset, offset);
