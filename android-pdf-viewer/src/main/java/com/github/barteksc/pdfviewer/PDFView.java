@@ -297,9 +297,9 @@ public class PDFView extends RelativeLayout {
         offset += pdfFile.getPageSpacing(page, getZoom()) / 2f;
 
         if (withAnimation) {
-            animationManagerRef.startXAnimation(getCurrentXOffset(), offset);
+            animationManager.startXAnimation(currentXOffset, offset);
         } else {
-            moveTo(offset, getCurrentYOffset());
+            moveTo(offset, currentYOffset());
         }
 
         showPage(page);
