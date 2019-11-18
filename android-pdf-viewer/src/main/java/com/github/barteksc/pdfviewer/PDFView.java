@@ -294,12 +294,26 @@ public class PDFView extends RelativeLayout {
 
         page = pdfFile.determineValidPageNumberFrom(page);
         float offset = page == 0 ? 0 : -pdfFile.getPageOffset(page, zoom);
-        offset += pdfFile.getPageSpacing(page, zoom) / 2f;
+//         offset += pdfFile.getPageSpacing(page, zoom) / 2f;
 
-        if (withAnimation) {
-            animationManager.startXAnimation(currentXOffset, offset);
+//         if (withAnimation) {
+//             animationManager.startXAnimation(currentXOffset, offset);
+//         } else {
+//             moveTo(offset, currentYOffset);
+//         }
+        
+        if (swipeVertical) {
+            if (withAnimation) {
+                animationManager.startYAnimation(currentYOffset, offset);
+            } else {
+                moveTo(currentXOffset, offset);
+            }
         } else {
-            moveTo(offset, currentYOffset);
+            if (withAnimation) {
+                animationManager.startXAnimation(currentXOffset, offset);
+            } else {
+                moveTo(offset, currentYOffset);
+            }
         }
 
         showPage(page);
