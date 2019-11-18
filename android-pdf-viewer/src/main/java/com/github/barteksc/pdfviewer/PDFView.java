@@ -301,7 +301,7 @@ public class PDFView extends RelativeLayout {
 //         } else {
 //             moveTo(offset, currentYOffset);
 //         }
-        offset = snapOffsetForPage(page-1,findSnapEdge(page))
+       
         
         if (swipeVertical) {
             if (withAnimation) {
@@ -316,7 +316,7 @@ public class PDFView extends RelativeLayout {
                 moveTo(offset, currentYOffset);
             }
         }
-
+performPageSnap();
         showPage(page);
     }
 
